@@ -95,27 +95,8 @@ st.plotly_chart(fig1)
 st.subheader("Insight")
 st.markdown("We note that most of these countries are not from the thrid world countries and each has it own economic strenght as tourism and trade meaning people are leaning towards smaller families and focused on business")
 
-st.subheader("Top 10 Countries with the least population")
-less_pop = population.sort_values(by = '2022 Population', ascending = True).head(10)
-less_pop[['Country', '2022 Population']]
-data = go.Bar(x = less_pop['Country'], y = less_pop['2022 Population'],text = less_pop['2022 Population'],textposition ='outside',
-              textfont = dict(size = 10,
-                             color = 'black'),
-             marker = dict(color = colors, opacity = 0.7, line_color = 'black', line_width = 2))
-layout = go.Layout(title = {'text' : '<b>Top 10 Countries with lowest popualtion</b>', 'x' : 0.5},
-                   xaxis = dict(title = '<b>Countries</b>'),
-                   yaxis = dict(title = '<b>Population</b>'),
-                   width = 900,
-                   height = 700,
-                   template = 'plotly_white')
-fig = go.Figure(data = data, layout = layout)
-fig.update_xaxes(tickangle=90,tickfont_size = 12)
 
 
-st.plotly_chart(fig3)
-
-st.subheader("Insight")
-st.markdown("In every continent population is increasing by time. Population of Asia is increasing highly followed by Africa.")
 
 # Colors for plots 
 colors = ["#1d7874","#679289","#f4c095","#ee2e31","#ffb563","#918450","#f85e00","#a41623","#9a031e","#d6d6d6","#ffee32","#ffd100","#333533","#202020"]
