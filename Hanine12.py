@@ -95,18 +95,23 @@ st.plotly_chart(fig1)
 st.subheader("Insight")
 st.markdown("We note that most of these countries are not from the thrid world countries and each has it own economic strenght as tourism and trade meaning people are leaning towards smaller families and focused on business")
 
-st.subheader("World Population through years")
-df1 = (population.set_index(['Continent','Capital',"Country","CCA3",'Area','Density','Growth_Rate','World_Population_Percentage','Rank'])
-         .stack()
-         .reset_index(name='Population')
-         .rename(columns={'level_9':'Year'}))
-fig3= px.choropleth(df1.sort_values('Year'), 
-              locations = 'CCA3',
-              color="Population",
-              animation_frame='Year',
-              color_continuous_scale ='OrRd',
-              title='World population through years' ,
-              height=800)
+st.subheader("Top 10 Countries with the least population")
+top_least_population = population.groupby( 'Country')['2022 Population'].sum().sort_values(ascending=True).head(10)
+
+fig3=px.bar(x=top_least_population.index,
+          y=top_least_population.values,
+          color=top_least_population.index,
+          color_discrete_sequence=px.colors.sequential.PuBuGn,
+          text=top_least_population.values,
+          title="Top 10 Countries with the least population",
+          template= 'plotly_dark')
+fig.update_layout(
+    xaxis_title="Countries",
+    yaxis_title="Population",
+    font = dict(size=15,family="Franklin Gothic"))
+
+
+st.plotly_chart(fig3)
 
 st.plotly_chart(fig3)
 st.subheader("Insight")
@@ -181,20 +186,7 @@ add_slider = st.sidebar.slider(
     0.0, 100.0, (25.0, 75.0)
 )
 
-left_column, right_column = st.columns(2)
-# You can use a column just like st.sidebar:
-left_column.button('Press me!')
 
-
-
-# Or even better, call Streamlit functions inside a "with" block:
-with right_column:
-    chosen = st.radio(
-        'Check your knowldge, continent having lowest population is ..?',
-        ("Africa", "South America", "Asia", "North America"))
-    st.write(f"Your answer is {chosen} !")
-    
-    import streamlit as st
 
 
 'Starting a long computation...'
