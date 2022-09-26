@@ -95,6 +95,7 @@ st.plotly_chart(fig1)
 st.subheader("Insight")
 st.markdown("We note that most of these countries are not from the thrid world countries and each has it own economic strenght as tourism and trade meaning people are leaning towards smaller families and focused on business")
 
+st.subheader("Top 10 Countries with the least population")
 less_pop = population.sort_values(by = '2022 Population', ascending = True).head(10)
 less_pop[['Country', '2022 Population']]
 data = go.Bar(x = less_pop['Country'], y = less_pop['2022 Population'],text = less_pop['2022 Population'],textposition ='outside',
@@ -113,7 +114,6 @@ fig.update_xaxes(tickangle=90,tickfont_size = 12)
 
 st.plotly_chart(fig3)
 
-st.plotly_chart(fig3)
 st.subheader("Insight")
 st.markdown("In every continent population is increasing by time. Population of Asia is increasing highly followed by Africa.")
 
