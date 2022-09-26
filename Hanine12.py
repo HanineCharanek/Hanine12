@@ -9,7 +9,7 @@ st.title('Welcome to my Application!:tada:')
 
 
 import pandas as pd
-population= pd.read_csv("world_population.csv") 
+population= pd.read_csv("C:/Users/student/Desktop/world_population.csv") 
 
 import plotly.express as px
 
@@ -22,15 +22,14 @@ import numpy as np
 import plotly.graph_objects as go
 
 
+
+
 # For showing plotly plots on notebook
 import plotly.offline as py
-py.init_notebook_mode()
-# For showing plotly plots on notebook
-import plotly.offline as py
-from plotly.offline import init_notebook_mode
-py.init_notebook_mode()
+
+
 import chart_studio.plotly as py
-import plotly.figure_factory as ff
+
 st.header("Wold Population")
 st.subheader("The Dataset contains Population data of every Country/Territory in the world")
 st.markdown("""
@@ -243,5 +242,8 @@ agree = st.checkbox('I agree to be contacted for new updates')
 
 if agree:
     st.write('Great!')
+
+
+
 
 
