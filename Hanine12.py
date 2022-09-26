@@ -12,7 +12,7 @@ import pandas as pd
 population= pd.read_csv("C:/Users/student/Desktop/world_population.csv") 
 
 import plotly.express as px
-from plotly.offline import iplot
+
 
 # Data wrangling
 import pandas as pd
